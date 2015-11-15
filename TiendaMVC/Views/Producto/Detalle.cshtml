@@ -1,0 +1,13 @@
+﻿@model TiendaMVC.Models.Producto
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalles de @Html.DisplayFor(o => o.Nombre)</h2>
+<h3>Descripción: @Model.Descripcion</h3>    @*= que poner Html.DisplayFor(o=>o.Descripcion)*@
+<h3>Precio Venta: @Model.Precio_Venta</h3>  @*= que poner Html.DisplayFor(o=>o.Precio_Venta)*@
+
+@Html.ActionLink("Volver","Index")          @*Se indica la etiqueta del link y el metodo del controlador al que llama*@
+
+

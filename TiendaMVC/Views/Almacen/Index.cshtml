@@ -1,0 +1,24 @@
+﻿@model IEnumerable<TiendaMVC.Models.Almacen>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Almacenes</h2>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-3">
+        <h3>@Html.DisplayFor(o => item.Nombre)</h3>
+        <p>
+            @Html.DisplayFor(o => item.CP)
+
+            @Html.DisplayFor(o => item.Ciudad)
+        </p>
+        <p>
+            @Html.ActionLink("Modificar", "Modificar", new {id = item.idAlmacen})
+            @Html.ActionLink("Eliminar", "Borrar", new { id = item.idAlmacen })
+        </p>
+       
+    </div>
+}
