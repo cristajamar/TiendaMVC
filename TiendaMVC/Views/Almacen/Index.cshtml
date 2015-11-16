@@ -1,4 +1,6 @@
-﻿@model IEnumerable<TiendaMVC.Models.Almacen>
+﻿@using System.Collections.Specialized
+@using TiendaMVC.Models
+@model System.Collections.Generic.IEnumerable<TiendaMVC.Models.Almacen>
 
 @{
     ViewBag.Title = "Index";
@@ -8,17 +10,19 @@
 
 @foreach (var item in Model)
 {
-    <div class="col-md-3">
-        <h3>@Html.DisplayFor(o => item.Nombre)</h3>
-        <p>
-            @Html.DisplayFor(o => item.CP)
+    @Html.Partial("_fichaAlmacen",item)
+}
 
-            @Html.DisplayFor(o => item.Ciudad)
-        </p>
-        <p>
-            @Html.ActionLink("Modificar", "Modificar", new {id = item.idAlmacen})
-            @Html.ActionLink("Eliminar", "Borrar", new { id = item.idAlmacen })
-        </p>
-       
-    </div>
+
+@section MiJavaScript
+{
+    <script>
+        $(".borrame").click(function() {
+            var r = confirm("Estas seguro?");
+            if (r) {
+                var id = $(this).attr("data-id");
+                location.href = "@Url.Action("Borrar")" + "/" +id;
+            }
+        });
+    </script>
 }

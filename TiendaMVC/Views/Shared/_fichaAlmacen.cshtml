@@ -1,0 +1,20 @@
+﻿@model TiendaMVC.Models.Almacen
+
+<div class="col-md-3">
+    
+    <h3>@Html.DisplayFor(o => Model.Nombre)</h3>
+    <p>
+        @Html.DisplayFor(o => Model.CP)
+
+        @Html.DisplayFor(o => Model.Ciudad)
+    </p>
+    <p>
+        
+        @Html.ActionLink("Modificar", "Modificar", "Almacen", new {id = Model.idAlmacen}, new {target = "_blank"})
+
+        <a href="#" class="borrame" data-id="@Model.idAlmacen"> Borrar </a>
+
+        @Html.ActionLink("Alta", "Alta", "Almacen", new {id = Model.idAlmacen}, null)
+    </p>
+
+</div>

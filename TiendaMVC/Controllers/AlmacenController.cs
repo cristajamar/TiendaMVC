@@ -25,6 +25,25 @@ namespace TiendaMVC.Controllers
             return View(data);
         }
 
+        public ActionResult Alta()
+        {
+            return View(new Almacen());
+        }
+
+
+        [HttpPost]
+        public ActionResult Alta(Almacen model)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Almacen.Add(model);
+                db.SaveChanges();
+                return View(new Almacen());
+            }
+
+            return View(model); //Si los datos introducidos no son correctos, los vuelve a cargar en el formulario para que se modifiquen.
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Modificar(Almacen model)
@@ -39,8 +58,7 @@ namespace TiendaMVC.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+
         public ActionResult Borrar(int id)
         {
             var data = db.Almacen.Find(id);

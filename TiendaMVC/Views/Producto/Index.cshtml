@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TiendaMVC.Models.Producto>
+﻿@model System.Collections.Generic.IEnumerable<TiendaMVC.Models.Producto>
+
 
 @{
     ViewBag.Title = "Index";
@@ -12,6 +13,12 @@
         @Html.DisplayNameFor(o => o.Nombre)
         @Html.DisplayFor(o => item.Nombre)
         <br/>
+
+        @foreach (var alm in item.ProductoAlmacen)
+        {
+            @*@Html.Partial("_fichaAlmacen", alm.Almacen)*@
+            <li>@alm.Almacen.Nombre</li>
+        }
         @Html.ActionLink("Ver", "Detalle", new {id = item.idProducto})
     </div>
 }
