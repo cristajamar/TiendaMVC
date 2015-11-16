@@ -3,9 +3,16 @@
 @model System.Collections.Generic.IEnumerable<TiendaMVC.Models.Almacen>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "title";
+    var etiq = ViewBag.etiquetas as List<Etiqueta>;
 }
 
+<h1>@ViewData["Titulo"]</h1>
+
+@*@foreach (var eq in )
+{
+    
+}*@
 <h2>Listado de Almacenes</h2>
 
 @foreach (var item in Model)
