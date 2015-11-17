@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TiendaMVC.Models.Producto>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fabricante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio_Coste)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio_Venta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fabricante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio_Coste)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio_Venta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idProducto }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idProducto }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idProducto })
+            </td>
+        </tr>
+    }
+
+</table>

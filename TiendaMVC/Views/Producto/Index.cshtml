@@ -19,7 +19,7 @@
             @*@Html.Partial("_fichaAlmacen", alm.Almacen)*@
             <li>@alm.Almacen.Nombre</li>
         }
-        @Html.ActionLink("Ver", "Detalle", new {id = item.idProducto})
+        @Html.ActionLink("Ver", "Detalle", new {nombre = item.Nombre.Replace(" ","_")})
     </div>
 }
 <br/>

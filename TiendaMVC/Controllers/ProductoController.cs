@@ -17,9 +17,12 @@ namespace TiendaMVC.Controllers
             return View(data);
         }
 
-        public ActionResult Detalle(int id)
+        public ActionResult Detalle(String nombre)
         {
-            var data = db.Producto.Find(id);
+            var nom = nombre.Replace("_", " ");
+            var data = db.Producto.FirstOrDefault(o => o.Nombre == nom);
+            if (data == null)
+                return RedirectToAction("Index");
             return View(data);
 
         }
