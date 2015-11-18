@@ -31,6 +31,7 @@ namespace TiendaMVC.Controllers
         {
             db.Producto.Add(model);
             db.SaveChanges();
+            ModelState.Clear();
             return Json(model);
         }
     }

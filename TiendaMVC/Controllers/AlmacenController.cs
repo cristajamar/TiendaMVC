@@ -47,6 +47,7 @@ namespace TiendaMVC.Controllers
             {
                 db.Almacen.Add(model);
                 db.SaveChanges();
+                ModelState.Clear();
                 return View(new Almacen());
             }
 
